@@ -165,8 +165,8 @@ read -p "hub create -p $OwnerGitHubUserName/$NewProjectName-Unversioned"
 hub create -p $OwnerGitHubUserName/$NewProjectName-Unversioned
 read -p "git remote rm origin"
 git remote rm origin
-read -p "git remote add origin https://github.com/djc5627/$NewProjectName-Unversioned.git"
-git remote add origin https://github.com/djc5627/$NewProjectName-Unversioned.git
+read -p "git remote add origin https://github.com/$OwnerGitHubUserName/$NewProjectName-Unversioned.git"
+git remote add origin https://github.com/$OwnerGitHubUserName/$NewProjectName-Unversioned.git
 
 # Pull from Unversioned template into fork and push to new repo
 read -p "git remote add upstream https://github.com/bowlmonkeylabs/UnityTemplate-Unversioned"
