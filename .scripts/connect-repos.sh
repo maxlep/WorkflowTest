@@ -50,6 +50,14 @@ cd $NewProjName
 read -p "cwd=$(pwd)"
 cwd=$(pwd) # Store current dir in variable
 
+# Switch to main on PrivateAssets
+read -p "cd Assets/Private"
+cd Assets/Private
+read -p "git checkout main"
+git git checkout main
+read -p "cd $cwd"
+cd "$cwd"
+
 # Git Config
 read -p "git config --local merge.ff only"
 git config --local merge.ff only

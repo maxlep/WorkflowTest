@@ -144,6 +144,10 @@ git config --local merge.ff only
 read -p "git submodule update --init --recursive"
 git submodule update --init --recursive
 
+# Switch to main on PrivateAssets
+read -p "git checkout main"
+git git checkout main
+
 # Push addition of submodule to main repo
 read -p "cd $cwd"
 cd "$cwd"
