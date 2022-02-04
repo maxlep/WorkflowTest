@@ -40,7 +40,7 @@ fi
 echo "You accepted the selections"
 
 
-# Clone new Main repo fork along with PrivateAssets submodule
+# Clone new Main repo fork along with Private submodule
 read -p "git clone https://github.com/$OwnerGitHubUserName/$NewProjName.git --recurse-submodules"
 git clone https://github.com/$OwnerGitHubUserName/$NewProjName.git --recurse-submodules
 
@@ -50,7 +50,7 @@ cd $NewProjName
 read -p "cwd=$(pwd)"
 cwd=$(pwd) # Store current dir in variable
 
-# Switch to main on PrivateAssets
+# Switch to main on Private
 read -p "cd Assets/Private"
 cd Assets/Private
 read -p "git checkout main"

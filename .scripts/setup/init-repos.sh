@@ -88,21 +88,21 @@ git commit -m "Initial Commit"
 read -p "git push --set-upstream origin main"
 git push --set-upstream origin main
 
-# Create new PrivateAssets repo fork inside Assets folder
+# Create new Private repo fork inside Assets folder
 read -p "cd Assets"
 cd Assets
-read -p "mkdir $NewProjectName-PrivateAssets"
-mkdir $NewProjectName-PrivateAssets
-read -p "cd $NewProjectName-PrivateAssets"
-cd $NewProjectName-PrivateAssets
+read -p "mkdir $NewProjectName-Private"
+mkdir $NewProjectName-Private
+read -p "cd $NewProjectName-Private"
+cd $NewProjectName-Private
 read -p "git init -b main"
 git init -b main
-read -p "hub create -p $OwnerGitHubUserName/$NewProjectName-PrivateAssets"
-hub create -p $OwnerGitHubUserName/$NewProjectName-PrivateAssets
+read -p "hub create -p $OwnerGitHubUserName/$NewProjectName-Private"
+hub create -p $OwnerGitHubUserName/$NewProjectName-Private
 
-# Pull from PrivateAssets template into fork and push to new repo
-read -p "git remote add upstream https://github.com/bowlmonkeylabs/UnityTemplate-PrivateAssets"
-git remote add upstream https://github.com/bowlmonkeylabs/UnityTemplate-PrivateAssets
+# Pull from Private template into fork and push to new repo
+read -p "git remote add upstream https://github.com/bowlmonkeylabs/UnityTemplate-Private"
+git remote add upstream https://github.com/bowlmonkeylabs/UnityTemplate-Private
 read -p "git config --local submodule.recurse false"
 git config --local submodule.recurse false
 read -p "git lfs install --skip-smudge --local"
@@ -129,10 +129,10 @@ git push --set-upstream origin main
 # Delete this fork and re-clone as a submodule (Prevents cloning issues)
 read -p "cd $cwd"
 cd "$cwd"
-read -p "rm -r -f Assets/$NewProjectName-PrivateAssets"
-rm -r -f Assets/$NewProjectName-PrivateAssets
-read -p "git submodule add https://github.com/$OwnerGitHubUserName/$NewProjectName-PrivateAssets.git Assets/Private"
-git submodule add https://github.com/$OwnerGitHubUserName/$NewProjectName-PrivateAssets.git Assets/Private
+read -p "rm -r -f Assets/$NewProjectName-Private"
+rm -r -f Assets/$NewProjectName-Private
+read -p "git submodule add https://github.com/$OwnerGitHubUserName/$NewProjectName-Private.git Assets/Private"
+git submodule add https://github.com/$OwnerGitHubUserName/$NewProjectName-Private.git Assets/Private
 read -p "cd Assets/$NewProjectName-Private"
 cd Assets/Private
 
@@ -140,21 +140,21 @@ cd Assets/Private
 read -p "git config --local merge.ff only"
 git config --local merge.ff only
 
-# Pull submodules for PrivateAssets
+# Pull submodules for Private
 read -p "git submodule update --init --recursive"
 git submodule update --init --recursive
 
-# Switch to main on PrivateAssets
+# Switch to main on Private
 read -p "git checkout main"
-git git checkout main
+git checkout main
 
 # Push addition of submodule to main repo
 read -p "cd $cwd"
 cd "$cwd"
 read -p "git add ."
 git add .
-read -p "git commit -m "Add PrivateAssets submodule""
-git commit -m "Add PrivateAssets submodule"
+read -p "git commit -m "Add Private submodule""
+git commit -m "Add Private submodule"
 read -p "git push"
 git push
 
