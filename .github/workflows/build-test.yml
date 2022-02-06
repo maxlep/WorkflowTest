@@ -66,6 +66,7 @@ jobs:
           git config user.name bowlmonkeylabs
           git annex init ${{ runner.os }}
           git annex sync --content
+          git annex unlock
           cd ../..
 
       # Unity cache
