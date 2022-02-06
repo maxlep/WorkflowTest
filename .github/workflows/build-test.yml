@@ -43,7 +43,7 @@ jobs:
       - name: Install git-annex
         run: |
           sudo apt-get update
-          sudo apt-get install git-annex          
+          sudo apt-get install git-annex
           
       - name: Clone unversioned repo
         uses: actions/checkout@master
@@ -51,6 +51,20 @@ jobs:
           repository: ${{ github.repository }}-Unversioned
           path: Assets/Unversioned
           token: ${{ secrets.SUBMODULES_PERSONAL_ACCESS_TOKEN }}
+          
+      - name: Cache unversioned
+        id: cache-unversioned
+        uses: actions/cache@v2
+        with:
+          path: Assets/Unversioned
+          key: ${{ runner.os }}-UnversionedAssets-${{ hashFiles('Assets/Unversioned/.git/annex/index') }}
+          
+      - name: Sync unversioned annex
+        run: |
+          cd Assets/Unversioned
+          git annex init ${{ runner.os }}
+          git annex sync --content
+          cd ../..
 
       # Unity cache
 #       - uses: actions/cache@v2
