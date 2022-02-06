@@ -62,6 +62,8 @@ jobs:
       - name: Sync unversioned annex
         run: |
           cd Assets/Unversioned
+          git config user.email "bowlmonkeylabs@gmail.com"
+          git config user.name bowlmonkeylabs
           git annex init ${{ runner.os }}
           git annex sync --content
           cd ../..
